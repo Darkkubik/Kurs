@@ -1,0 +1,69 @@
+# Основной класс информации о клиенте, которому выдают кредит
+class Bank:
+    Name = ""
+    Owner = ""
+    Data = ""
+    Period = ""
+    Percant = 0.0
+    Conditions = ""
+
+    def __init__(self, nm, ow, dt, tm, per, cond):
+        self.Name = nm
+        self.Owner = ow
+        self.Data = dt
+        self.Period = tm
+        self.Percant = per
+        self.Conditions = cond
+
+    def __str__(self):
+        return self.Name
+        return self.Owner
+        return self.Data
+        return self.Period
+        return self.Percant
+        return self.Conditions
+
+# Чтение из файла
+'''def reeading():
+    with open("makefile") as f:
+    lines = f.read().split("\n")
+    f = open('text.txt')
+    for line in f:
+        line'''
+
+# Класс Node для определения элемента списка
+class Node:
+    def __init__(self, data = None, next = None):
+        self.data = data
+        self.next = next
+
+import copy
+import random 
+
+class LinkedList:
+    def __init__(self):
+        self.head = None 
+        self.tail = None
+ 
+    def out(self): 
+        if self.head is None: 
+            print("Списка не существует") 
+        else: 
+            cur_node = self.head 
+            while cur_node is not None: 
+                if cur_node.next is None: 
+                    print(cur_node.data) 
+                    break 
+                else: 
+                    print(cur_node.data, " ")
+                    cur_node = cur_node.next 
+
+    def clear(self):
+        self.__init__()
+
+    def add(self, x):
+        new_node = Node(x, None)
+        if self.head is None: 
+            self.head = self.tail = new_node 
+        else:
+            self.tail.next = self.tail = new_node
