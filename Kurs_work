@@ -23,14 +23,6 @@ class Bank:
         return self.Percant
         return self.Conditions
 
-# Чтение из файла
-'''def reeading():
-    with open("makefile") as f:
-    lines = f.read().split("\n")
-    f = open('text.txt')
-    for line in f:
-        line'''
-
 # Класс Node для определения элемента списка
 class Node:
     def __init__(self, data = None, next = None):
