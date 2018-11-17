@@ -1,0 +1,63 @@
+from dataclasses import dataclass
+from typing import Any
+ 
+ 
+@dataclass
+class Bank(object):
+    name: str = None
+    owner: str = None
+    data: str = None
+    period: str = None
+    percant: float = None
+    conditions: str = None
+ 
+    def __str__(self):
+        return f'<Bank name: {self.name}, owner: {self.owner}, data: {self.data}, period: {self.period}, percant: {self.percant}>, conditions: {self.conditions}'
+ 
+ 
+@dataclass
+class Node(object):
+    data: Any
+    next: 'Node' = None
+ 
+ 
+@dataclass
+class LinkedList(object):
+    root: Node = None
+    last: Node = root
+ 
+    def __str__(self):
+        return '<Creditors {}>'.format(
+            [_.owner for _ in self] 
+        )
+ 
+    def __getitem__(self, index: int) -> Any:
+        cur_node = self.root
+        for _ in range(index-1):
+            cur_node = cur_node.next
+        return cur_node.data
+ 
+    def __iter__(self):
+        cur_node = self.root
+        while cur_node is not None:
+            yield cur_node.data
+            cur_node = cur_node.next
+ 
+    def append(self, x: Any) -> None:
+        node = Node(data=x)
+        if self.last is None:
+            self.root = node
+            self.last = self.root
+            return
+        self.last.next = node
+ 
+ 
+if __name__ == '__main__':
+    l = LinkedList()
+    print(l)
+    l.append(Bank(name='Sber', owner = 'Kubik', data = '28/08/2018', period = '5 month', percant = 5.0, conditions = 'Because'))
+    print(l)
+    l.append(Bank(name='Alfa', owner = 'Senia', data = '27/09/2017', period = '12 month', percant = 10.0, conditions = 'Because'))
+    print(l)
+    print(l[2].percant)
+    print(l[1].name + ' ' + l[1].owner + ' ' + l[1].data + ' ' + l[1].period + ' ' + l[1].percant + ' ' + l[1].conditions)
