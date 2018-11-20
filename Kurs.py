@@ -1,10 +1,6 @@
 from dataclasses import dataclass
 from typing import Any
 
-with open("creditors_int.txt") as f:
-        lines = f.read().split("\n")
- 
- 
 @dataclass
 class Bank(object):
     name: str = None
