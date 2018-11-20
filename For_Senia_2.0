@@ -55,21 +55,6 @@ class LinkedList(object):
             i += 1
             cur_node = cur_node.next
         return i
-        
-        
-# Добавление кредитора вручную
-def inter_creditors(l):
-    command = 0
-    while command != 1:
-        print("Новый кредитор")
-        nm = str(input("Введите название банка: "))
-        ow = str(input("Введите имя кредитора: "))
-        dt = str(input("Введите дату взятие кредита: "))
-        per = str(input("Введите период взятия кредита: "))
-        pr = float(input("Введите процент кредита: "))
-        cond = str(input("Введите условия: "))
-        l.append(Bank(name = nm, owner = ow, data = dt, period = per, percant = pr, conditions = cond))
-        command = int(input("Хотите добавить еще кредитора? Да - 0 | Нет - 1: "))
 
 # Вывод списка кредиторов
 def print_list(l, n):
